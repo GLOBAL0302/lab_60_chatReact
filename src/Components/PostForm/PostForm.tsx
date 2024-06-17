@@ -34,7 +34,7 @@ const PostForm= () => {
   }
 
   return (
-    <form onSubmit={onFormSubmit}>
+    <form onSubmit={onFormSubmit} className="mb-4">
       <div className="input-group mb-3">
         <span className="input-group-text" id="inputGroup-sizing-default">Author</span>
         <input

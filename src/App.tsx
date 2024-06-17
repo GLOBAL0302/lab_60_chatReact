@@ -4,7 +4,17 @@ import { IPost } from './types';
 import PostForm from './Components/PostForm/PostForm';
 import Posts from './Components/Posts/Posts';
 
-const url: string = 'http://146.185.154.90:8000/messages';
+
+let url: string = 'http://146.185.154.90:8000/messages';
+const getTime = async ()=>{
+  const response = await fetch(url)
+  const data = await response.json()
+  url+= "?datetime=" + (data[data.length - 1]).datetime
+  return url
+}
+getTime().then(response => url= response)
+
+
 const App = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
 
@@ -12,10 +22,13 @@ const App = () => {
 
 
   useEffect(() => {
+
     const interval = setInterval(async ()=>{
       const response = await fetch(url);
       const data = await response.json()
-      setLastTime((data[data.length - 1].datetime))
+      if(data.length){
+        setLastTime(data[data.length - 1].datetime)
+      }
       setPosts(data)
     }, 3000)
 

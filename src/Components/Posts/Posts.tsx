@@ -7,7 +7,7 @@ interface Props{
 
 const Posts:React.FC<Props> = ({posts}) => {
   return (
-    <div>
+    <div className="border border-5 p-3 bg-body-secondary">
       {posts.map(post =>(
         <Post
           key={post._id}
