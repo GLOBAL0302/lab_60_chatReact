@@ -1,19 +1,20 @@
 import {useState } from 'react';
 import { IPost } from '../../types';
 
+
 const postInitialState = {
   message:"",
   author: ""
 }
 
-const PostForm = () => {
-  const [myPost, setmyPost] = useState<IPost>({
+const PostForm= () => {
+  const [myPost, setMyPost] = useState<IPost>({
     message: "",
     author: ""
   });
 
   const onChangeInfo = (event:React.ChangeEvent<HTMLInputElement>)=>{
-    setmyPost((prevState)=>({
+    setMyPost((prevState)=>({
       ...prevState,
       [event.target.name]: event.target.value
     }))
@@ -29,8 +30,7 @@ const PostForm = () => {
       body: data
     })
 
-
-    setmyPost(postInitialState)
+    setMyPost(postInitialState)
   }
 
   return (
