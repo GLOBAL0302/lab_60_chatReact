@@ -1,17 +1,15 @@
 import { IPost } from '../../types';
 import Post from './Post/Post';
 
-interface Props{
-  posts :IPost[]
+interface Props {
+  posts: IPost[];
 }
 
-const Posts:React.FC<Props> = ({posts}) => {
+const Posts: React.FC<Props> = ({ posts }) => {
   return (
     <div className="border border-5 p-3 bg-body-secondary">
-      {posts.map(post =>(
-        <Post
-          key={post._id}
-          post={post}/>
+      {posts.map((post) => (
+        <Post key={post._id} post={post} />
       ))}
     </div>
   );
